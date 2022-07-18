@@ -1,6 +1,6 @@
 package com.quercusdata.kafkademo.web;
 
-import com.quercusdata.kafkademo.constants.Constant;
+import com.quercusdata.kafkademo.util.Constants;
 import com.quercusdata.kafkademo.kafka.KafkaProducer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,9 +23,9 @@ public class MessageWS {
         try {
             kafkaProducer.send(message);
         }catch(Exception e) {
-            return new ResponseEntity<>(Constant.FAILURE_IN_PROCESS, HttpStatus.FORBIDDEN);
+            return new ResponseEntity<>(Constants.FAILURE_IN_PROCESS, HttpStatus.FORBIDDEN);
         }
         log.debug("Leaving");
-        return new ResponseEntity<>(Constant.SUCCESSFUL_PROCESS, HttpStatus.OK);
+        return new ResponseEntity<>(Constants.SUCCESSFUL_PROCESS, HttpStatus.OK);
     }
 }
